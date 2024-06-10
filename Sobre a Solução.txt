@@ -1,0 +1,23 @@
+
+docker-compose.yml
+- Script pra subir no Dockers:
+  - Kafka - Broker
+  - Zookeeper - Orquestrador do Broker
+  - Kafdrop - Dashboard
+
+
+
+Net.Delivery.Order.Api
+- WebApi
+-- depende de: Net.Delivery.Order.Domain
+-- Interface de comunicação com o kafka/banco
+
+Net.Delivery.Order.Domain
+- ClassLib
+-- Banco simulado com list estatico
+-- Uso de repository
+
+
+Net.Delivery.Order.Notifier
+- Worker
+-- depende de: Net.Delivery.Order.Domain
